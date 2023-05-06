@@ -1,0 +1,11 @@
+{
+  "host": "localhost",
+  "port": 4000,
+  "timePeriod_ms": 100,
+  "servers": [
+    {
+      "host": "127.0.0.1",
+      "port": 8080
+    }
+  ]
+}
