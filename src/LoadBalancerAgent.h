@@ -16,16 +16,20 @@ private:
         {"host", &LoadBalancerAgent::handleConfigHost},
         {"port", &LoadBalancerAgent::handleConfigPort},
         {"timePeriod_ms", &LoadBalancerAgent::handleConfigTimePeriod},
-        {"servers", &LoadBalancerAgent::handleConfigServers}
+        {"LB_servers", &LoadBalancerAgent::handleConfigServers},
+        {"associatedServer", &LoadBalancerAgent::handleConfigAssociatedServer}
     };
 
     void handleConfigHost(nlohmann::json &value);
     void handleConfigPort(nlohmann::json &value);
     void handleConfigTimePeriod(nlohmann::json &value);
     void handleConfigServers(nlohmann::json &value);
+    void handleConfigAssociatedServer(nlohmann::json &value);
 
-    std::string m_host = "localhost";
+    std::string m_host = "127.0.0.1";
     std::string m_port = "4000";
+    std::string m_associatedHost = "127.0.0.1";
+    std::string m_associatedPort = "3000";
     uint64_t m_timePeriod = 1000;
     std::vector<struct sockaddr_in> m_servers;
     std::vector<int> m_sockets;

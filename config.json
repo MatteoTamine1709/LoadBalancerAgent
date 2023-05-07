@@ -1,8 +1,12 @@
 {
-  "host": "localhost",
+  "host": "127.0.0.1",
   "port": 4000,
   "timePeriod_ms": 100,
-  "servers": [
+  "associatedServer": {
+    "host": "127.0.0.1",
+    "port": 3000
+  },
+  "LB_servers": [
     {
       "host": "127.0.0.1",
       "port": 8080

@@ -56,7 +56,9 @@ void LoadBalancerAgent::run()
         } else if (m_cpuUsage > 20) {
             SPDLOG_INFO("CPU usage is normal: {}", m_cpuUsage);
         }
-        std::string message = std::to_string(m_cpuUsage) + "\n";
+        std::string message = "LOAD_BALANCER_AGENT\n";
+        message += m_associatedHost + ":" + m_associatedPort + "\n";
+        message += std::to_string(m_cpuUsage) + "\n";
         for (auto& socket : m_sockets)
             if (::send(socket, message.c_str(), message.length(), 0) < 0)
                 throw std::runtime_error("send() failed: " + std::string(strerror(errno)));
